@@ -6,7 +6,7 @@ public class LightCube : MonoBehaviour {
 	private Material cubeMat;
 
 	[SerializeField][Header("値を増やすほどゆっくり変化する")]
-	private float changeSpeed;
+	public float changeSpeed;
 
 
 	// Use this for initialization
@@ -17,6 +17,6 @@ public class LightCube : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float emissionColor = Mathf.Repeat (Time.time, 1.0f * changeSpeed);
-		cubeMat.SetColor ("_EmissionColor", Color.HSVToRGB(emissionColor / changeSpeed, 1.0f, 0.9268723f));
+		cubeMat.SetColor ("_EmissionColor", Color.HSVToRGB(emissionColor / changeSpeed, 1.0f, 0.1f));
 	}
 }
