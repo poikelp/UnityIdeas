@@ -25,9 +25,6 @@ public class MakeMap : MonoBehaviour {
 	private GameObject player;
 
 	[SerializeField]
-	private GameObject camera;
-
-	[SerializeField]
 	private Material mat;
 
 	public GameObject myCube;
