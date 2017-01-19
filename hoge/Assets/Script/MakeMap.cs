@@ -64,7 +64,7 @@ public class MakeMap : MonoBehaviour {
 	private void SetY(GameObject cube){
 		float y = 0;
 
-		//パーリンノイズを使って高さを決める場合
+		//パーリンノイズを使って高さを決める
 		float xSample = (cube.transform.localPosition.x + _seedX) / _relief;
 		float zSample = (cube.transform.localPosition.z + _seedZ) / _relief;
 
