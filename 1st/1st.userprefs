@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\blendField.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\cubeSup.cs">
     <Files>
-      <File FileName="Assets\blendField.cs" Line="21" Column="76" />
+      <File FileName="Assets\blendField.cs" Line="28" Column="107" />
+      <File FileName="Assets\cubeSup.cs" Line="23" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
