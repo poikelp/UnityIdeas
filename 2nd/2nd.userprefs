@@ -1,9 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\ReStand.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UnityChan\Scripts\FaceUpdate.cs">
     <Files>
-      <File FileName="Assets\roll.cs" Line="23" Column="26" />
-      <File FileName="Assets\ReStand.cs" Line="19" Column="1" />
+      <File FileName="Assets\roll.cs" Line="1" Column="1" />
+      <File FileName="Assets\ReStand.cs" Line="1" Column="1" />
+      <File FileName="Assets\README_SD_UnityChan.txt" Line="1" Column="1" />
+      <File FileName="Assets\animControll.cs" Line="1" Column="1" />
+      <File FileName="Assets\UnityChan\Scripts\FaceUpdate.cs" Line="48" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
