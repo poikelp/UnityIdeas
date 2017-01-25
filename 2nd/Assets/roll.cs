@@ -21,5 +21,6 @@ public class roll : MonoBehaviour {
 
 		Vector3 addPow = new Vector3 (hori * Time.deltaTime * speed, 0.0f, vert * Time.deltaTime * speed);
 		rigi.AddForce (addPow);
+
 	}
 }
