@@ -1,12 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UnityChan\Scripts\FaceUpdate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\chaseCamera.cs">
     <Files>
-      <File FileName="Assets\roll.cs" Line="1" Column="1" />
-      <File FileName="Assets\ReStand.cs" Line="1" Column="1" />
       <File FileName="Assets\README_SD_UnityChan.txt" Line="1" Column="1" />
-      <File FileName="Assets\animControll.cs" Line="1" Column="1" />
-      <File FileName="Assets\UnityChan\Scripts\FaceUpdate.cs" Line="48" Column="6" />
+      <File FileName="Assets\UnityChan\Scripts\FaceUpdate.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\chaseCamera.cs" Line="18" Column="100" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

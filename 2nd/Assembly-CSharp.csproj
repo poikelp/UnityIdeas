@@ -61,6 +61,7 @@
      <Compile Include="Assets\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
      <Compile Include="Assets\script\ReStand.cs" />
      <Compile Include="Assets\script\animControll.cs" />
+     <Compile Include="Assets\script\chaseCamera.cs" />
      <Compile Include="Assets\script\roll.cs" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
