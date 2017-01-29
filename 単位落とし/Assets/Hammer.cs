@@ -24,7 +24,7 @@ public class Hammer : MonoBehaviour {
 //			transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0.0f, 30.0f, 0.0f), Time.deltaTime);
 			rigi.AddTorque(0.0f, torque, 0.0f);
 		}
-		if (transform.eulerAngles.y > 50.0f) {
+		if (transform.eulerAngles.y > 70.0f) {
 			rigi.angularVelocity = Vector3.zero;
 			transform.eulerAngles = Vector3.zero;
 			swinging = false;
