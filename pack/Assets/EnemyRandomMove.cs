@@ -22,4 +22,11 @@ public class EnemyRandomMove : MonoBehaviour {
 		agent.SetDestination (target);
 
 	}
+
+	void OnCollisionEnter(Collision col){
+		if(col.gameObject.CompareTag("Player")){
+			Destroy(col.gameObject);
+		}
+		Debug.Log (col.gameObject.tag);
+	}
 }
