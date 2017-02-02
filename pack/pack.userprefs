@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/foods.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/EnemyRandomMove.cs">
     <Files>
-      <File FileName="Assets/foods.cs" Line="13" Column="40" />
+      <File FileName="Assets/EnemyRandomMove.cs" Line="19" Column="2" />
+      <File FileName="Assets/foods.cs" Line="22" Column="43" />
       <File FileName="Assets/move.cs" Line="30" Column="29" />
       <File FileName="Assets/scoreSet.cs" Line="22" Column="17" />
     </Files>
