@@ -31,4 +31,11 @@ public class move : MonoBehaviour {
 		}
 		
 	}
+
+	void OnCollisionEnter(Collision col){
+		if(col.gameObject.CompareTag("Enemy")){
+			Destroy(this.gameObject);
+		}
+		Debug.Log ("hoge");
+	}
 }
