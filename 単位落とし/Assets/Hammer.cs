@@ -19,7 +19,7 @@ public class Hammer : MonoBehaviour {
 		float nextPos = Mathf.PingPong (Time.time, 4.0f) - 0.5f;
 		transform.position = new Vector3 (-1.5f, nextPos, -1.5f);
 
-		if (Input.GetButtonDown ("Fire1") && !swinging) {
+		if (Input.GetMouseButtonDown(0) && !swinging) {
 			swinging = true;
 //			transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(0.0f, 30.0f, 0.0f), Time.deltaTime);
 			rigi.AddTorque(0.0f, torque, 0.0f);

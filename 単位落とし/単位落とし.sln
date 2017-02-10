@@ -1,7 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{50746E4B-8165-3CD7-1C0D-D4EA2986612C}") = "単位落とし", "Assembly-CSharp.csproj", "{F4606EDC-1BB7-386B-05F5-F5D84250236B}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "単位落とし", "Assembly-CSharp.csproj", "{F4606EDC-1BB7-386B-05F5-F5D84250236B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
