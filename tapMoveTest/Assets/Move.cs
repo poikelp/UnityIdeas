@@ -11,11 +11,16 @@ public class Move : MonoBehaviour {
 	private float defRange;
 	private Transform movRanTra;
 	private float moveRange;
+	private float nowRange;
+
+	public float smoothTime = 0.3F;
+	private float ranVelocity = 0.0F;
 
 	void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		movRanTra = GameObject.Find ("moveRange").transform;
 		moveRange = defRange;
+		nowRange = moveRange;
 		SetRangeSprite ();
 	}
 
@@ -28,7 +33,7 @@ public class Move : MonoBehaviour {
 					if (dist < moveRange) {
 						agent.SetDestination (hit.point);
 						moveRange -= dist;
-						SetRangeSprite ();
+
 					}
 				}
 			}       
@@ -36,10 +41,13 @@ public class Move : MonoBehaviour {
 		if (Input.GetMouseButtonDown (1)) {
 			ResetRange ();
 		}
+		nowRange = Mathf.SmoothDamp(nowRange, moveRange, ref ranVelocity, smoothTime);
+		SetRangeSprite ();
 	}
 
 	void SetRangeSprite () {
-		movRanTra.localScale = new Vector3 (moveRange * 2.0f, 0.00001f, moveRange * 2.0f );
+		movRanTra.localScale = new Vector3 (nowRange * 2.0f, 0.00001f, nowRange * 2.0f );
+
 	}
 
 	void ResetRange () {
