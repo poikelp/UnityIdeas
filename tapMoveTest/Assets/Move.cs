@@ -24,7 +24,7 @@ public class Move : MonoBehaviour {
 			ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit, 100f)){
 				if (!hit.collider.gameObject.Equals(this.gameObject)) {
-					float dist = Vector3.Distance (transform.position, hit.point);
+					float dist = Vector3.Distance (movRanTra.position, hit.point);
 					if (dist < moveRange) {
 						agent.SetDestination (hit.point);
 						moveRange -= dist;
@@ -39,7 +39,7 @@ public class Move : MonoBehaviour {
 	}
 
 	void SetRangeSprite () {
-		movRanTra.localScale = new Vector3 (moveRange, 0.00001f, moveRange);
+		movRanTra.localScale = new Vector3 (moveRange * 2.0f, 0.00001f, moveRange * 2.0f );
 	}
 
 	void ResetRange () {
