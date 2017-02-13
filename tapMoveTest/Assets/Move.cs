@@ -13,6 +13,7 @@ public class Move : MonoBehaviour {
 	private float moveRange;
 	private float nowRange;
 
+
 	public float smoothTime = 0.3F;
 	private float ranVelocity = 0.0F;
 
