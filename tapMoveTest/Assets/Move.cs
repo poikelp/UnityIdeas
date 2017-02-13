@@ -20,7 +20,7 @@ public class Move : MonoBehaviour {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		movRanTra = GameObject.Find ("moveRange").transform;
 		moveRange = defRange;
-		nowRange = moveRange;
+		nowRange = 0.0f;
 		SetRangeSprite ();
 	}
 
