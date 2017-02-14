@@ -30,7 +30,7 @@ public class Move : MonoBehaviour {
 			ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit, 100f)){
 				if (!hit.collider.gameObject.Equals(this.gameObject)) {
-					float dist = Vector3.Distance (movRanTra.position, hit.point);
+					float dist = Vector3.Distance (new Vector3(movRanTra.position.x, 0.0f, movRanTra.position.z), hit.point);
 					if (dist < moveRange) {
 						agent.SetDestination (hit.point);
 						moveRange -= dist;
