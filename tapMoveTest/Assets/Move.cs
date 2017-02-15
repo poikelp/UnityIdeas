@@ -66,7 +66,7 @@ public class Move : MonoBehaviour {
 
 	public void ResetRange () {
 
-		if (manager.turn) {
+		if (manager.Turn) {
 			moveRange = defRange;
 		} else {
 			moveRange = 0.0f;

@@ -24,13 +24,14 @@ public class EnemyMoveTest : MonoBehaviour {
 	}
 
 	public void SetTarget () {
-		if (!manager.turn) {
-			agent.SetDestination (target.position);
-			Invoke ("StopMove", 1.0f);
-		}
+		
+		agent.SetDestination (target.position);
+		Invoke ("StopMove", 1.0f);
+
 	}
 
 	void StopMove () {
 		agent.ResetPath ();
+		manager.Turn = true;
 	}
 }

@@ -4,7 +4,25 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	public bool turn;
+	[SerializeField]
+	private Move P1;
+
+	[SerializeField]
+	private EnemyMoveTest E1;
+
+	private bool turn;
+	public bool Turn{
+		set {
+			turn = value;
+
+			P1.ResetRange ();
+			if (!turn)
+				E1.SetTarget ();
+
+		}
+
+		get { return turn;}
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -18,8 +36,8 @@ public class GameManager : MonoBehaviour {
 
 	public void TurnChange () {
 		if (turn)
-			turn = false;
+			Turn = false;
 		else
-			turn = true;
+			Turn = true;
 	}
 }
