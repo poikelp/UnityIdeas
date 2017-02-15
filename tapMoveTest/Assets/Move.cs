@@ -45,13 +45,15 @@ public class Move : MonoBehaviour {
 				}
 			}       
 		}
-		if (Input.GetMouseButtonDown (1)) {
-			ResetRange ();
-		}
 
-		if (!manager.turn) {
-			moveRange = 0.0f;
-		}
+/*
+*		if (Input.GetMouseButtonDown (1)) {
+*			ResetRange ();
+*		}
+*
+*
+*/
+
 
 		nowRange = Mathf.SmoothDamp(nowRange, moveRange, ref ranVelocity, smoothTime);
 		SetRangeSprite ();
@@ -63,7 +65,13 @@ public class Move : MonoBehaviour {
 	}
 
 	public void ResetRange () {
-		moveRange = defRange;
-		SetRangeSprite ();
+
+		if (manager.turn) {
+			moveRange = defRange;
+		} else {
+			moveRange = 0.0f;
+
+		}
+
 	}
 }
