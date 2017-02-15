@@ -51,7 +51,7 @@ public class Move : MonoBehaviour {
 
 	}
 
-	void ResetRange () {
+	public void ResetRange () {
 		moveRange = defRange;
 		SetRangeSprite ();
 	}
