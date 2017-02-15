@@ -8,11 +8,18 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		turn = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void TurnChange () {
+		if (turn)
+			turn = false;
+		else
+			turn = true;
 	}
 }

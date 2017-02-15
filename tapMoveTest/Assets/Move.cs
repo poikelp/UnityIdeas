@@ -2,6 +2,11 @@
 using System.Collections;
 
 public class Move : MonoBehaviour {
+
+	[SerializeField]
+	private GameManager manager;
+
+
 	private UnityEngine.AI.NavMeshAgent agent;
 
 	private RaycastHit hit;
@@ -18,6 +23,7 @@ public class Move : MonoBehaviour {
 	private float ranVelocity = 0.0F;
 
 	void Start () {
+
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		movRanTra = GameObject.Find ("moveRange").transform;
 		moveRange = defRange;
@@ -42,6 +48,11 @@ public class Move : MonoBehaviour {
 		if (Input.GetMouseButtonDown (1)) {
 			ResetRange ();
 		}
+
+		if (!manager.turn) {
+			moveRange = 0.0f;
+		}
+
 		nowRange = Mathf.SmoothDamp(nowRange, moveRange, ref ranVelocity, smoothTime);
 		SetRangeSprite ();
 	}
