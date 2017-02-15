@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\AttackRange.cs" />
      <Compile Include="Assets\Character.cs" />
+     <Compile Include="Assets\EnemyMoveTest.cs" />
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\Move.cs" />
  <Reference Include="UnityEngine.UI">
