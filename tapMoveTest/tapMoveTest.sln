@@ -1,7 +1,7 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tapMoveTest", "Assembly-CSharp.csproj", "{5E5D9CF9-5571-CAA1-20B1-9C7222B3059F}"
+# Visual Studio 2008
+
+Project("{EE3A1669-7875-1F00-955F-A312590DE493}") = "tapMoveTest", "Assembly-CSharp.csproj", "{5E5D9CF9-5571-CAA1-20B1-9C7222B3059F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
