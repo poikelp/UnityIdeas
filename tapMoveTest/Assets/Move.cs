@@ -18,6 +18,11 @@ public class Move : MonoBehaviour {
 	private float moveRange;
 	private float nowRange;
 
+	private UnityEngine.AI.NavMeshPath path;
+
+	[SerializeField]
+	LineRenderer line;
+
 
 	public float smoothTime = 0.3F;
 	private float ranVelocity = 0.0F;
@@ -39,6 +44,11 @@ public class Move : MonoBehaviour {
 					float dist = Vector3.Distance (new Vector3(movRanTra.position.x, 0.0f, movRanTra.position.z), hit.point);
 					if (dist < moveRange) {
 						agent.SetDestination (hit.point);
+						path = new UnityEngine.AI.NavMeshPath ();
+						agent.CalculatePath (hit.point, path);
+						line.SetVertexCount (path.corners.Length);
+						line.SetPositions (path.corners);
+
 						moveRange -= dist;
 
 					}
