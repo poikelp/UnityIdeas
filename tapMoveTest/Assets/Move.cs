@@ -34,20 +34,21 @@ public class Move : MonoBehaviour {
 		moveRange = defRange;
 		nowRange = 0.0f;
 		SetRangeSprite ();
+
+		path = new UnityEngine.AI.NavMeshPath ();
+
 	}
 
 	void Update () {
+		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
 		if (Input.GetMouseButtonDown(0)){
-			ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit, 100f)){
 				if (!hit.collider.gameObject.Equals(this.gameObject)) {
 					float dist = Vector3.Distance (new Vector3(movRanTra.position.x, 0.0f, movRanTra.position.z), hit.point);
 					if (dist < moveRange) {
 						agent.SetDestination (hit.point);
-						path = new UnityEngine.AI.NavMeshPath ();
-						agent.CalculatePath (hit.point, path);
-						line.SetVertexCount (path.corners.Length);
-						line.SetPositions (path.corners);
+
 
 						moveRange -= dist;
 
@@ -55,6 +56,11 @@ public class Move : MonoBehaviour {
 				}
 			}       
 		}
+		if (Physics.Raycast (ray, out hit, 100f)) {
+			agent.CalculatePath (hit.point, path);
+		}
+		line.SetVertexCount (path.corners.Length);
+		line.SetPositions (path.corners);
 
 /*
 *		if (Input.GetMouseButtonDown (1)) {
