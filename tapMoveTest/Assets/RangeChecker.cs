@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RangeChecker : MonoBehaviour {
 
+	[SerializeField]
+	GameObject marker;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +14,10 @@ public class RangeChecker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+	}
+
+	public void SerchRange () {
 		
 	}
 }
