@@ -51,6 +51,7 @@
      <Compile Include="Assets\EnemyMoveTest.cs" />
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\Move.cs" />
+     <Compile Include="Assets\RangeChecker.cs" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
