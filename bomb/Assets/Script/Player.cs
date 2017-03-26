@@ -31,4 +31,10 @@ public class Player : MonoBehaviour {
 		cCon.Move (motion);
 		
 	}
+
+	void OnTriggerEnter(Collider collider){
+		if (collider.gameObject.CompareTag ("Fire")) {
+			Destroy (this.gameObject);
+		}
+	}
 }
