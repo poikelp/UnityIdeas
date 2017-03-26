@@ -45,7 +45,10 @@ public class StageMake : MonoBehaviour {
 			}
 		}
 
-		Instantiate (player, new Vector3(1, 0, 11), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+		var p1 = Instantiate (player, new Vector3(1, 0, 11), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+		p1.GetComponent<Player>().num = 1;
+		var p2 = Instantiate (player, new Vector3(13, 0, 1), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+		p2.GetComponent<Player>().num = 2;
 	}
 	
 	// Update is called once per frame
