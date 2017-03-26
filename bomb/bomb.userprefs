@@ -1,9 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Bom.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\StageMake.cs">
     <Files>
-      <File FileName="Assets\Player.cs" Line="27" Column="26" />
+      <File FileName="Assets\Player.cs" Line="28" Column="81" />
       <File FileName="Assets\Bom.cs" Line="6" Column="24" />
+      <File FileName="Assets\StageMake.cs" Line="31" Column="57" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
