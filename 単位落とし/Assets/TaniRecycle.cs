@@ -18,6 +18,16 @@ public class TaniRecycle : MonoBehaviour {
 			rigi.angularVelocity = Vector3.zero;
 			transform.position = new Vector3 (0.0f, 10.0f, 0.0f);
 			transform.eulerAngles = new Vector3 (0.0f, transform.eulerAngles.y, 0.0f);
+			float rand = Random.Range (0, 20);
+			if (rand <= 1.0) {
+				this.transform.localScale = new Vector3 (1.2f, 1.2f, 1.2f);
+			}else if(rand <= 2.0) {
+				this.transform.localScale = new Vector3 (1.4f, 1.4f, 1.4f);
+
+			} else {
+				this.transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
+
+			}
 		}
 	}
 }

@@ -1,7 +1,7 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bomb", "Assembly-CSharp.csproj", "{65687F5F-8CD2-8EB5-A3CA-D4A89D9F0881}"
+# Visual Studio 2008
+
+Project("{E373A9BE-7AFB-FA19-AA17-EAA54F19AF88}") = "bomb", "Assembly-CSharp.csproj", "{65687F5F-8CD2-8EB5-A3CA-D4A89D9F0881}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
