@@ -1,7 +1,7 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smart move UI", "Assembly-CSharp.csproj", "{F789239C-B415-CA82-2D42-A67DEB046751}"
+# Visual Studio 2008
+
+Project("{BFC860E7-B6F4-F125-6782-7E8708A3F909}") = "smart move UI", "Assembly-CSharp.csproj", "{F789239C-B415-CA82-2D42-A67DEB046751}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

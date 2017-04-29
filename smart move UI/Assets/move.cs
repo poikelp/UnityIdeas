@@ -22,6 +22,7 @@ public class move : MonoBehaviour {
 		//クリックしたときの座標を取得
 		if (Input.GetMouseButtonDown (0)) {
 			oldTapPos = Input.mousePosition;
+			oldHori = 0.0f;
 		}
 
 		if (Input.GetMouseButton (0)) {
