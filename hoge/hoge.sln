@@ -1,7 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{EA703E7A-A1EF-DA00-64EA-A507D9E8AB7E}") = "hoge", "Assembly-CSharp.csproj", "{F424F24B-0FF0-7C99-321C-7483177243CD}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hoge", "Assembly-CSharp.csproj", "{F424F24B-0FF0-7C99-321C-7483177243CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
