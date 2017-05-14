@@ -16,15 +16,18 @@ public class LightSet : MonoBehaviour {
 	private float matTrigger;
 	private float timeOut;
 
+	private LightCube lig;
+
 	// Use this for initialization
 	void Start () {
-		this.changeSpeed = GameObject.Find("LightChanger").GetComponent<LightCube>().changeSpeed;
+		lig = GameObject.Find ("LightChanger").GetComponent<LightCube> ();
+		this.changeSpeed = lig.changeSpeed;
 		timeOut = 0.3f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		this.changeSpeed = lig.changeSpeed;
 
 		if (emisV > 0.1f) {
 			emisV -= Time.deltaTime * 0.2f;		//光を弱める
@@ -37,7 +40,7 @@ public class LightSet : MonoBehaviour {
 		}
 
 		if (Time.time > matTrigger) {
-			if (Random.value < 0.001f) {
+			if (Random.value < 0.005f) {
 				CreateMaterial ();
 			}
 			matTrigger = Time.time + timeOut;
