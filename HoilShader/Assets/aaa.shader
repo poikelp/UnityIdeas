@@ -43,6 +43,7 @@
 			float2 uv_RedTex;
 		};
 
+
 		half _Glossiness;
 		half _Metallic;
 		fixed4 _Color;
@@ -86,7 +87,7 @@
 
 			o.Emission = emi;
 			//o.Albedo = c.g;
-			o.Albedo = main.rgb;
+			o.Albedo = lerp(main.rgb, blu.rgb, 0.1);
 
 			o.Alpha = main.a;
 		}
