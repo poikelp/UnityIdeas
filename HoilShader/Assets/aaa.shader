@@ -59,6 +59,12 @@
 			fixed4 red = tex2D(_RedTex, IN.uv_RedTex + half2(_Time.x * _FlowR,0))
 				+ tex2D(_RedTex, IN.uv_RedTex + half2(_Time.x * 2 * _FlowR, _FlowR));
 
+			fixed4 blu = c;
+			blu.r = blu.b;
+			blu.g = blu.b;
+			blu *= main;
+
+
 			//gre.g += c.g;
 			//c.rgb = lerp(c.rgb, gr.rgb, gr.g);
 			//gre.rgb = lerp(gre.rgb, c.rgb, 0.5);
@@ -72,7 +78,7 @@
 			red.rgb *= c.rgb;
 			red.g = red.r;
 			red.b = red.r;
-			fixed4 emi = gre * _EmissionG + red * _EmissionR;
+			fixed4 emi = gre * _EmissionG + red * _EmissionR ;
 
 			//if(gre.g < 0.6){
 			//	gre.g = 0;
