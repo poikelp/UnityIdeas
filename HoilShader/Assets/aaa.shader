@@ -1,17 +1,26 @@
 ﻿Shader "Custom/aaa" {
 	Properties {
-		_Color ("Color", Color) = (1,1,1,1)
-		_MainTex ("Albedo (RGB)", 2D) = "white" {}
-		_SubTex ("subTex", 2D) = "white" {}
-		_RedTex ("RedTex", 2D) = "white" {}
-		_GreTex ("GreTex", 2D) = "white" {}
-		_WaveTex ("WaveTex", 2D) = "white" {}
-		_Cutoff     ("Cutoff"      , Range(0, 1)) = 0.5
-		_FlowG    ("Flow SpeedG", Float) = 1
-		_EmissionG ("EmissionG", Color) = (1,1,1,1)
-		_FlowR    ("Flow SpeedR", Float) = 1
+		_MainTex ("BaseTexture", 2D) = "white" {}
+		_SubTex ("SubTexture", 2D) = "black" {}
+		_WaveTex ("WaveTex", 2D) = "gray" {}
+		_Red1Tex ("Red1Tex", 2D) = "black" {}
+		_FlowR1X  ("VectorX", Range(-1.0, 1.0)) = 0 
+		_FlowR1Y ("VectorY", Range(-1.0, 1.0)) = 0 
+		_SpeedR1 ("Speed", Range(0, 20)) = 0
+		_Red2Tex ("Red2Tex", 2D) = "black" {}
+		_FlowR2X  ("VectorX", Range(-1.0, 1.0)) = 0
+		_FlowR2Y  ("VectorY", Range(-1.0, 1.0)) = 0
+		_SpeedR2 ("Speed", Range(0, 20)) = 0
 		_EmissionR ("EmissionR", Color) = (1,1,1,1)
-
+		_Gre1Tex ("Gre1Tex", 2D) = "black" {}
+		_FlowG1X  ("VectorX", Range(-1.0, 1.0)) = 0
+		_FlowG1Y  ("VectorY", Range(-1.0, 1.0)) = 0
+		_SpeedG1 ("Speed", Range(0, 20)) = 0
+		_Gre2Tex ("Gre2Tex", 2D) = "black" {}
+		_FlowG2X  ("VectorX", Range(-1.0, 1.0)) = 0 
+		_FlowG2Y  ("VectorY", Range(-1.0, 1.0)) = 0 
+		_SpeedG2 ("Speed", Range(0, 20)) = 0
+		_EmissionG ("EmissionG", Color) = (1,1,1,1)
 	}
 	SubShader {
 		Tags {	//"Queue"      = "AlphaTest"
@@ -32,17 +41,26 @@
 
 			sampler2D _MainTex;
 			sampler2D _SubTex;
-			sampler2D _GreTex;
-			sampler2D _RedTex;
+			sampler2D _Gre1Tex;
+			sampler2D _Gre2Tex;
+			sampler2D _Red1Tex;
+			sampler2D _Red2Tex;
 			sampler2D _WaveTex;
-			half _FlowG;
+			half _FlowG1X;
+			half _FlowG1Y;
+			half _SpeedG1;
+			half _FlowG2X;
+			half _FlowG2Y;
+			half _SpeedG2;
 			half4 _EmissionG;
-			half _FlowR;
+			half _FlowR1X;
+			half _FlowR1Y;
+			half _SpeedR1;
+			half _FlowR2X;
+			half _FlowR2Y;
+			half _SpeedR2;
 			half4 _EmissionR;
 
-			half _Glossiness;
-			half _Metallic;
-			fixed4 _Color;
 
 			struct appdata_t{
 				float4 vertex : POSITION;
@@ -78,10 +96,10 @@
 				fixed4 main = tex2D(_MainTex, i.main);
 				fixed4 sub = tex2D (_SubTex, i.main);
 	
-				fixed4 gre = tex2D(_GreTex, i.main + half2(_Time.x * _FlowG, _Time.x * _FlowG))
-					+ tex2D(_GreTex, i.main + half2(_Time.x * 2 * _FlowG + 1, _Time.x * 2 * _FlowG - 1));
-				fixed4 red = tex2D(_RedTex, i.main + half2(_Time.x * _FlowR,0))
-					+ tex2D(_RedTex, i.main + half2(_Time.x * 2 * _FlowR, _FlowR));
+				fixed4 gre = tex2D(_Gre1Tex, i.main + half2(_Time.x * _FlowG1X * -1 * _SpeedG1, _Time.x * _FlowG1Y * -1 * _SpeedG1))
+					+ tex2D(_Gre2Tex, i.main + half2(_Time.x * _FlowG2X * -1 * _SpeedG2, _Time.x * _FlowG2Y * -1 * _SpeedG2));
+				fixed4 red = tex2D(_Red1Tex, i.main + half2(_Time.x * _FlowR1X * -1 * _SpeedR1, _Time.x * _FlowR1Y * -1 * _SpeedR1))
+					+ tex2D(_Red2Tex, i.main + half2(_Time.x * _FlowR2X * -1 * _SpeedR2, _Time.x * _FlowR2Y * -1 * _SpeedR2));
 
 				
 
@@ -112,4 +130,5 @@
 		}
 	}
 	FallBack "Diffuse"
+	CustomEditor "FoilShaderCustomEditor"
 }
