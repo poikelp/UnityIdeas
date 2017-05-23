@@ -93,14 +93,10 @@
 				red.b = red.r;
 				fixed4 emi = gre * _EmissionG + red * _EmissionR ;
 	
-				sub.r = sub.b;
-				sub.g = sub.b;
-				sub.a = sub.b;
-				sub.rgb *= main.rgb;
 				fixed2 wave = tex2D(_WaveTex, i.main + half2(-_Time.x*5, -_Time.x*5)).rg;
 				float2 hoge = wave * 0.03 + i.main - (0.02, 0.02);
 				fixed4 waved = tex2D(_MainTex, hoge);
-				main = lerp(main, waved, sub.a);
+				main = lerp(main, waved, sub.b);
 				main += emi;
 
 	
