@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp-Editor.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/aaa.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\aaa.shader">
     <Files>
-      <File FileName="Assets/aaa.shader" Line="1" Column="1" />
-      <File FileName="Assets/Editor/FoilShaderCustomEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets\aaa.shader" Line="107" Column="165" />
+      <File FileName="Assets\Editor\FoilShaderCustomEditor.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

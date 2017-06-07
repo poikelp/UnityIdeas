@@ -94,8 +94,8 @@
 	            //v.normal = normalize(float3(v.normal.x+offset_, v.normal.y, v.normal.z));
 	        }	
 
-			float setFlashTime(){
-				return sin(_Time * 5000000);
+			float setFlashTime(int num){
+				return sin(_Time * num);
 			}
 
 			fixed4 frag (v2f i) : SV_Target{
@@ -104,7 +104,7 @@
 	
 				fixed4 gre = tex2D(_Gre1Tex, i.main + half2(_Time.x * _FlowG1X * -1 * _SpeedG1, _Time.x * _FlowG1Y * -1 * _SpeedG1))
 					+ tex2D(_Gre2Tex, i.main + half2(_Time.x * _FlowG2X * -1 * _SpeedG2, _Time.x * _FlowG2Y * -1 * _SpeedG2));
-				fixed4 red = lerp(tex2D(_Red1Tex, i.main + half2(_Time.x * _FlowR1X * -1 * _SpeedR1, _Time.x * _FlowR1Y * -1 * _SpeedR1)), 0, lerp(0, _FlashR1, setFlashTime()))
+				fixed4 red = lerp(tex2D(_Red1Tex, i.main + half2(_Time.x * _FlowR1X * -1 * _SpeedR1, _Time.x * _FlowR1Y * -1 * _SpeedR1)), 0, lerp(0, _FlashR1, setFlashTime(500)))
 					+ tex2D(_Red2Tex, i.main + half2(_Time.x * _FlowR2X * -1 * _SpeedR2, _Time.x * _FlowR2Y * -1 * _SpeedR2));
 
 				//red.r = lerp(red.r, 0, _FlashR1);
@@ -118,7 +118,7 @@
 				fixed4 emi = gre * _EmissionG + red * _EmissionR ;
 	
 				fixed4 wave = tex2D(_WaveTex, i.main + half2(-_Time.x*5, -_Time.x*5));
-				float2 hoge = wave * 0.03 + i.main - (0.02, 0.02);
+				fixed2 hoge = wave.xy * 0.03 + i.main - (0.02, 0.02);
 				fixed4 waved = tex2D(_MainTex, hoge);
 				main = lerp(main, waved, sub.b);
 				main += emi;
