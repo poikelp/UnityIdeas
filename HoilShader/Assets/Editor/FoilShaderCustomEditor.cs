@@ -72,6 +72,41 @@ public class FoilShaderCustomEditor : MaterialEditor {
 			EditorGUI.indentLevel = 1;
 			EditorGUI.BeginChangeCheck ();
 
+			Texture red1 = EditorGUILayout.ObjectField (
+				"texture",
+				material.GetTexture ("_Red1Tex"),
+				typeof(Texture),
+				false) as Texture;
+			EditorGUILayout.LabelField ("Vector");
+			EditorGUI.indentLevel += 3;
+			float x = EditorGUILayout.Slider (
+				          "X",
+				          material.GetFloat ("_FlowR1X"),
+				          -1,
+				          1);
+			float y = EditorGUILayout.Slider (
+				"Y",
+				material.GetFloat ("_FlowR1Y"),
+				-1,
+				1);
+			EditorGUI.indentLevel -= 3;
+			float speed = EditorGUILayout.Slider (
+				"Speed",
+				material.GetFloat ("_SpeedR1"),
+				0,
+				10);
+			bool flash = EditorGUILayout.Toggle(
+				"Flash",
+				(material.GetFloat ("_FlashR1") != 0) ? true:false);
+
+
+			if (EditorGUI.EndChangeCheck ()) {
+				material.SetTexture ("_Red1Tex", red1);
+				material.SetFloat ("_FlowR1X", x);
+				material.SetFloat ("_FlowR1Y", y);
+				material.SetFloat ("_SpeedR1", speed);
+				material.SetFloat ("_FlashR1", flash ? 1:0);
+			}
 			EditorGUI.indentLevel = 0;
 		}
 		isRed2 = EditorGUILayout.Foldout (isRed2, "Red2");
@@ -79,13 +114,73 @@ public class FoilShaderCustomEditor : MaterialEditor {
 			EditorGUI.indentLevel = 1;
 			EditorGUI.BeginChangeCheck ();
 
+			Texture red2 = EditorGUILayout.ObjectField (
+				"texture",
+				material.GetTexture ("_Red2Tex"),
+				typeof(Texture),
+				false) as Texture;
+			EditorGUILayout.LabelField ("Vector");
+			EditorGUI.indentLevel += 3;
+			float x = EditorGUILayout.Slider (
+				"X",
+				material.GetFloat ("_FlowR2X"),
+				-1,
+				1);
+			float y = EditorGUILayout.Slider (
+				"Y",
+				material.GetFloat ("_FlowR2Y"),
+				-1,
+				1);
+			EditorGUI.indentLevel -= 3;
+			float speed = EditorGUILayout.Slider (
+				"Speed",
+				material.GetFloat ("_SpeedR2"),
+				0,
+				10);
+			
+			if (EditorGUI.EndChangeCheck ()) {
+				material.SetTexture ("_Red2Tex", red2);
+				material.SetFloat ("_FlowR2X", x);
+				material.SetFloat ("_FlowR2Y", y);
+				material.SetFloat ("_SpeedR2", speed);
+			}
 			EditorGUI.indentLevel = 0;
 		}
 		isGreen1 = EditorGUILayout.Foldout (isGreen1, "Green1");
-		if (isGreen2) {
+		if (isGreen1) {
 			EditorGUI.indentLevel = 1;
 			EditorGUI.BeginChangeCheck ();
 
+			Texture green1 = EditorGUILayout.ObjectField (
+				"texture",
+				material.GetTexture ("_Gre1Tex"),
+				typeof(Texture),
+				false) as Texture;
+			EditorGUILayout.LabelField ("Vector");
+			EditorGUI.indentLevel += 3;
+			float x = EditorGUILayout.Slider (
+				"X",
+				material.GetFloat ("_FlowG1X"),
+				-1,
+				1);
+			float y = EditorGUILayout.Slider (
+				"Y",
+				material.GetFloat ("_FlowG1Y"),
+				-1,
+				1);
+			EditorGUI.indentLevel -= 3;
+			float speed = EditorGUILayout.Slider (
+				"Speed",
+				material.GetFloat ("_SpeedG1"),
+				0,
+				10);
+			
+			if (EditorGUI.EndChangeCheck ()) {
+				material.SetTexture ("_Gre1Tex", green1);
+				material.SetFloat ("_FlowG1X", x);
+				material.SetFloat ("_FlowG1Y", y);
+				material.SetFloat ("_SpeedG1", speed);
+			}
 			EditorGUI.indentLevel = 0;
 		}
 		isGreen2 = EditorGUILayout.Foldout (isGreen2, "Green2");
@@ -93,6 +188,36 @@ public class FoilShaderCustomEditor : MaterialEditor {
 			EditorGUI.indentLevel = 1;
 			EditorGUI.BeginChangeCheck ();
 
+			Texture green2 = EditorGUILayout.ObjectField (
+				"texture",
+				material.GetTexture ("_Gre2Tex"),
+				typeof(Texture),
+				false) as Texture;
+			EditorGUILayout.LabelField ("Vector");
+			EditorGUI.indentLevel += 3;
+			float x = EditorGUILayout.Slider (
+				"X",
+				material.GetFloat ("_FlowG2X"),
+				-1,
+				1);
+			float y = EditorGUILayout.Slider (
+				"Y",
+				material.GetFloat ("_FlowG2Y"),
+				-1,
+				1);
+			EditorGUI.indentLevel -= 3;
+			float speed = EditorGUILayout.Slider (
+				"Speed",
+				material.GetFloat ("_SpeedG2"),
+				0,
+				10);
+			
+			if (EditorGUI.EndChangeCheck ()) {
+				material.SetTexture ("_Gre2Tex", green2);
+				material.SetFloat ("_FlowG2X", x);
+				material.SetFloat ("_FlowG2Y", y);
+				material.SetFloat ("_SpeedG2", speed);
+			}
 			EditorGUI.indentLevel = 0;
 		}
 	}
