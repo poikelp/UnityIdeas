@@ -13,10 +13,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 4
     y: 44
     width: 1362
     height: 724
+=======
+    x: 8
+    y: 51
+    width: 950
+    height: 718
+>>>>>>> refs/remotes/origin/master
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
@@ -104,10 +111,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1362
     height: 674
   m_MinSize: {x: 813, y: 492}
   m_MaxSize: {x: 22008, y: 14042}
+=======
+    width: 950
+    height: 668
+  m_MinSize: {x: 817, y: 492}
+  m_MaxSize: {x: 22012, y: 14042}
+>>>>>>> refs/remotes/origin/master
   vertical: 0
   controlID: 21
 --- !u!114 &6
@@ -128,10 +142,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1085
     height: 674
   m_MinSize: {x: 536, y: 492}
   m_MaxSize: {x: 18006, y: 14042}
+=======
+    width: 673
+    height: 668
+  m_MinSize: {x: 540, y: 492}
+  m_MaxSize: {x: 18010, y: 14042}
+>>>>>>> refs/remotes/origin/master
   vertical: 1
   controlID: 22
 --- !u!114 &7
@@ -152,8 +173,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1085
     height: 401
+=======
+    width: 673
+    height: 397
+>>>>>>> refs/remotes/origin/master
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
@@ -226,6 +252,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 401
     width: 1085
     height: 273
@@ -233,6 +260,15 @@ MonoBehaviour:
   m_MaxSize: {x: 18006, y: 10021}
   vertical: 0
   controlID: 72
+=======
+    y: 397
+    width: 673
+    height: 271
+  m_MinSize: {x: 540, y: 271}
+  m_MaxSize: {x: 18010, y: 10021}
+  vertical: 0
+  controlID: 145
+>>>>>>> refs/remotes/origin/master
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,8 +285,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 324
     height: 273
+=======
+    width: 202
+    height: 271
+>>>>>>> refs/remotes/origin/master
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
@@ -325,7 +366,11 @@ MonoBehaviour:
     x: 1085
     y: 0
     width: 277
+<<<<<<< HEAD
     height: 674
+=======
+    height: 668
+>>>>>>> refs/remotes/origin/master
   m_MinSize: {x: 277, y: 71}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 20}
@@ -355,10 +400,17 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 607
     y: 94
     width: 480
     height: 380
+=======
+    x: 337
+    y: 100
+    width: 342
+    height: 376
+>>>>>>> refs/remotes/origin/master
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
   m_Stats: 0
@@ -431,10 +483,17 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 4
     y: 94
     width: 599
     height: 380
+=======
+    x: 8
+    y: 100
+    width: 325
+    height: 376
+>>>>>>> refs/remotes/origin/master
   m_SceneLighting: 1
   lastFramingTime: 3894.926955997944
   m_2DMode: 0
@@ -468,7 +527,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.29973614, y: 0.0953979, z: -0.030138465, w: -0.948762}
     speed: 2
+<<<<<<< HEAD
     m_Value: {x: -0.29973614, y: 0.0953979, z: -0.030138465, w: -0.948762}
+=======
+    m_Value: {x: 0.027312612, y: 0.96959996, z: 0.20666285, w: -0.12814206}
+>>>>>>> refs/remotes/origin/master
   m_Size:
     m_Target: 379.36398
     speed: 2
@@ -505,6 +568,7 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 4
     y: 495
     width: 322
@@ -514,6 +578,17 @@ MonoBehaviour:
     m_SelectedIDs: 361effff
     m_LastClickedID: -57802
     m_ExpandedIDs: ca3fffff5246ffffaa47ffffac47fffffc4cffffc0fbffffe2fbffff00000000
+=======
+    x: 8
+    y: 497
+    width: 200
+    height: 250
+  m_TreeViewState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 56fbffff00000000
+>>>>>>> refs/remotes/origin/master
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -558,10 +633,17 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 330
     y: 495
     width: 211
     height: 252
+=======
+    x: 212
+    y: 497
+    width: 131
+    height: 250
+>>>>>>> refs/remotes/origin/master
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -584,10 +666,17 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 545
     y: 495
     width: 542
     height: 252
+=======
+    x: 347
+    y: 497
+    width: 332
+    height: 250
+>>>>>>> refs/remotes/origin/master
   m_SearchFilter:
     m_NameFilter: 
     m_ClassNames: []
@@ -599,19 +688,34 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
+<<<<<<< HEAD
     - Assets/GoogleVR/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
   - Assets/GoogleVR/Prefabs
+=======
+    - Assets
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets
+>>>>>>> refs/remotes/origin/master
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: /Users/user/UnityIdeas/WebCamTest
+  m_LastProjectPath: "C:\\Users\\\u85E4\u672C\u5927\u8F14\\Documents\\GitHub\\UnityIdeas\\WebCamTest"
   m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 261}
     m_SelectedIDs: ea300000
     m_LastClickedID: 12522
     m_ExpandedIDs: 0000000084250000bc250000c0250000f425000056260000a4260000b6260000be260000c6260000e4260000d4300000f6300000f830000000ca9a3bffffff7f
+=======
+    scrollPos: {x: 0, y: 95}
+    m_SelectedIDs: a6270000
+    m_LastClickedID: 10150
+    m_ExpandedIDs: 00000000a6270000d8270000dc270000002800004a280000842800008e280000962800009c280000b428000000ca9a3bffffff7f
+>>>>>>> refs/remotes/origin/master
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -639,7 +743,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000084250000bc250000c0250000f425000056260000a4260000b6260000be260000c6260000e4260000
+=======
+    m_ExpandedIDs: 00000000a6270000d8270000dc270000002800004a280000842800008e280000962800009c280000b4280000
+>>>>>>> refs/remotes/origin/master
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -716,8 +824,13 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1091
     y: 94
+=======
+    x: 683
+    y: 100
+>>>>>>> refs/remotes/origin/master
     width: 275
     height: 653
   m_ScrollPosition: {x: 0, y: 0}
