@@ -14,6 +14,9 @@ namespace Vuforia
     public class DefaultTrackableEventHandler : MonoBehaviour,
                                                 ITrackableEventHandler
     {
+
+		private GameObject hoge;
+
         #region PRIVATE_MEMBER_VARIABLES
  
         private TrackableBehaviour mTrackableBehaviour;
@@ -26,6 +29,9 @@ namespace Vuforia
     
         void Start()
         {
+			hoge = GameObject.Find ("Cylinder");
+			hoge.SetActive (false);
+
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();
             if (mTrackableBehaviour)
             {
@@ -84,6 +90,7 @@ namespace Vuforia
             }
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+			hoge.SetActive (true);
         }
 
 
@@ -105,6 +112,7 @@ namespace Vuforia
             }
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
+			hoge.SetActive (false);
         }
 
         #endregion // PRIVATE_METHODS
