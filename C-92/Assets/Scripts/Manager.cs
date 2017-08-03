@@ -11,16 +11,29 @@ public class Manager : MonoBehaviour {
 	private bool right;
 	private GameObject player;
 	private Character PC;
-	public Vector3 pGoal;
-	private bool canMove = false;
+	public Vector2 pPos;
+//	private bool canMove = false;
 	public GameObject[] enemys;
+	public Vector2[] lastPos;
+	public Transform p;
+	private Transform cam;
 
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		PC = player.GetComponent<Character> ();
-		pGoal = player.transform.position;
 		enemys = GameObject.FindGameObjectsWithTag ("Enemy");
+		int i = 0;
+		lastPos = new Vector2[enemys.Length];
+		foreach(GameObject ene in enemys){
+			Debug.Log ("hoge");
+			lastPos[i] = new Vector2(ene.transform.position.x, ene.transform.position.z);
+			i++;
+		}
+		p = GameObject.FindGameObjectWithTag ("Player").transform;
+		pPos = new Vector2 (p.position.x, p.position.z);
+
+		cam = GameObject.FindGameObjectWithTag ("MainCamera").transform;
 
 		StartCoroutine (Coroutine ());
 	}
@@ -32,19 +45,21 @@ public class Manager : MonoBehaviour {
 	}
 
 	IEnumerator Coroutine() {
-		var cor = StartCoroutine (WateInput ());
-		yield return cor;
-		while (!canMove) {
-			cor = StartCoroutine (WateInput ());
+		while (true) {
+			var cor = StartCoroutine (WateInput ());
 			yield return cor;
+//		while (!canMove) {
+//			cor = StartCoroutine (WateInput ());
+//			yield return cor;
+//		}
+			cor = StartCoroutine (EnemyThink ());
+			yield return cor;
+			cor = StartCoroutine (UnitMove ());
+			yield return cor;
+			cor = StartCoroutine (EnemyAttack ());
+			yield return cor;
+//			StartCoroutine (Coroutine ());
 		}
-		cor = StartCoroutine (EnemyThink ());
-		yield return cor;
-		cor = StartCoroutine (UnitMove ());
-		yield return cor;
-		cor = StartCoroutine (EnemyAttack ());
-		yield return cor;
-		StartCoroutine (Coroutine ());
 	}
 
 	IEnumerator WateInput (){
@@ -52,16 +67,20 @@ public class Manager : MonoBehaviour {
 		while (!left && !right && hori == 0 && vert == 0) {
 			yield return null;
 		}
-		if (hori > 0) {
-			canMove = PC.Move (0);
+		int dire = 0;
+		dire += (int)(cam.eulerAngles.y + 45) / 90;
+		if (hori < 0) {
+			PC.Move (dire);
 		} else if (vert > 0) {
-			canMove = PC.Move (1);
-		} else if (hori < 0) {
-			canMove = PC.Move (2);
+			PC.Move ((dire + 1) % 4);
+		} else if (hori > 0) {
+			PC.Move ((dire + 2) % 4);
 		} else if (vert < 0) {
-			canMove = PC.Move (3);
+			PC.Move ((dire + 3) % 4);
 		}
-		pGoal = PC.goal;
+
+		yield return null;
+		pPos = PC.goV2;
 /*		入力情報を取得
  *		if(攻撃)
  *			StartCoroutine (PlayerAttack ());
@@ -72,22 +91,30 @@ public class Manager : MonoBehaviour {
 		yield return new WaitForSeconds(0.1f);
 	}
 	IEnumerator EnemyThink () {
-		Debug.Log ("ET");
+//		Debug.Log ("ET");
+		int i = 0;
 		foreach (GameObject ene in enemys) {
-			ene.GetComponent<Enemy> ().Think (pGoal);
+			ene.GetComponent<Enemy> ().Think (pPos);
+			yield return null;
+			lastPos [i] = ene.GetComponent<Enemy> ().goV2;
+			i++;
 		}
-		yield return new WaitForSeconds(0.0f);
 	}
 	IEnumerator UnitMove (){
-		Debug.Log ("UM");
-		PC.isMoving = true;
+//		Debug.Log ("UM");
+		PC.NavStart ();
 		foreach (GameObject ene in enemys) {
-			ene.GetComponent<Enemy> ().isMoving = true;
+			ene.GetComponent<Enemy> ().NavStart ();
+			yield return null;
 		}
-		yield return new WaitForSeconds(0.4f);
+
+		while (PC.agent.hasPath) {
+			yield return null;
+		}
+
 	}
 	IEnumerator EnemyAttack () {
-		Debug.Log ("EA");
+//		Debug.Log ("EA");
 		yield return new WaitForSeconds(0.0f);
 	}
 }

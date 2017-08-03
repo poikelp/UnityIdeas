@@ -4,26 +4,25 @@ using UnityEngine;
 
 public class Enemy : Character {
 
-	private Manager man;
+//	private Manager man;
 
 	// Use this for initialization
-	void Start () {
-		man = GameObject.FindGameObjectWithTag ("Manager").GetComponent<Manager> ();
-	}
+//	void Start () {
+//		man = GameObject.FindGameObjectWithTag ("Manager").GetComponent<Manager> ();
+//	}
 
-	public void Think (Vector3 pGoal) {
-		Vector3 dire = transform.position - pGoal;
-		bool hoge;
-		if (Mathf.Abs (dire.x) > Mathf.Abs (dire.z)) {
+	public void Think (Vector2 pPos) {
+		Vector2 dire = new Vector2(transform.position.x, transform.position.z) - pPos;
+		if (Mathf.Abs (dire.x) > Mathf.Abs (dire.y)) {
 			if (dire.x > 1)
-				hoge = Move (2);
+				Move (0);
 			else if (dire.x < -1)
-				hoge = Move (0);
+				Move (2);
 		} else {
-			if (dire.z > 1)
-				hoge = Move (3);
-			else if (dire.z < -1)
-				hoge = Move (1);
+			if (dire.y > 1)
+				Move (3);
+			else if (dire.y < -1)
+				Move (1);
 		}
 	}
 }
