@@ -12,26 +12,40 @@ public class Character : MonoBehaviour {
 //	private float time = 0.4f;
 	public Manager manage;
 	public UnityEngine.AI.NavMeshAgent agent;
-	public Vector2 goV2;
+	private Animator anim;
+	public Vector3 oldGoal;
+
+	private float eulerY = 0;
+	private float rotaSp = 0.3f;
+	private float rotaVe = 0;
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent> ();
 		manage = GameObject.FindGameObjectWithTag ("Manager").GetComponent<Manager> ();
-		agent.acceleration = 25;
+		agent.acceleration = 8;
+		if(CompareTag("Player")) anim = GetComponentInChildren<Animator> ();
+		oldGoal = goal = transform.position;
+
 		//test
 		//agent.SetDestination(new Vector3(3f, 0.5f, -15f ));
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (anim != null) {
+			anim.SetBool ("mooving", Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0);
+		}
 
+		transform.eulerAngles = new Vector3 (0, Mathf.SmoothDampAngle (transform.eulerAngles.y, eulerY, ref rotaVe, rotaSp), 0);
 	}
 
 	public void Move(int direction){
 
 		//目的地（仮）を設定
-		goal = transform.position;
+//		goal = transform.position;
+		oldGoal = goal;
 		goal.x = Mathf.RoundToInt (goal.x);
+		goal.y = Mathf.RoundToInt (goal.y);
 		goal.z = Mathf.RoundToInt (goal.z);
 		switch (direction) {
 		case 0:
@@ -49,38 +63,40 @@ public class Character : MonoBehaviour {
 		default:
 			break;
 		}
-		transform.LookAt (goal);
-		goal.y += 1;
 
-		goV2 = new Vector2 (goal.x, goal.z);
-		foreach (Vector2 ene in manage.lastPos) {
-			if (goV2.Equals (ene)) {
-				goal = transform.position;
-				goV2.x = transform.position.x;
-				goV2.y = transform.position.z;
+		eulerY = (direction - 1) * 90;
+//		transform.LookAt (goal);
+//		transform.LookAt (new Vector3(goal.x, transform.position.y, goal.z));
+
+
+		//段差補正
+		Vector3 stPos = goal;
+		stPos.y += 1;
+		RaycastHit hit;
+		Vector3 botom = new Vector3 (0, -1, 0);
+		if (Physics.Raycast (stPos, botom, out hit, 10)) {
+			goal = hit.point;
+			goal.x = Mathf.RoundToInt (goal.x);
+			goal.y = Mathf.RoundToInt (goal.y);
+			goal.z = Mathf.RoundToInt (goal.z);
+			goal.y += 1;
+		} else {
+//			goal = transform.position;
+			goal = oldGoal;
+		}
+
+
+
+		foreach (Vector3 ene in manage.lastPos) {
+			if (goal.Equals (ene)) {
+				goal = oldGoal;
 				return;
 			}
 		}
-		if (goV2.Equals (manage.pPos)) {
-			goal = transform.position;
-			goV2.x = transform.position.x;
-			goV2.y = transform.position.z;
+		if (goal.Equals (manage.pPos)) {
+			goal = oldGoal;
 			return;
 		}
-
-		//段差補正
-		RaycastHit hit;
-		Vector3 botom = new Vector3 (0, -1, 0);
-		if (Physics.Raycast (goal, botom, out hit, 10)) {
-			goal = hit.point;
-			goal.x = Mathf.RoundToInt (goal.x);
-			goal.z = Mathf.RoundToInt (goal.z);
-		} else {
-			goal = transform.position;
-			goal.x = Mathf.RoundToInt (goal.x);
-			goal.z = Mathf.RoundToInt (goal.z);
-		}
-		goV2 = new Vector2 (goal.x, goal.z);
 
 		return;
 	}

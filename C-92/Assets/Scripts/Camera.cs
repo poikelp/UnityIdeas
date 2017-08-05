@@ -18,7 +18,7 @@ public class Camera : MonoBehaviour {
 	void Start () {
 //		nowPos = transform.position;
 		if (target == null) {
-			target = GameObject.FindGameObjectWithTag ("Player").transform;
+			target = GameObject.Find ("camTarget").transform;
 		}
 		mouse.y = 0.3f;
 		

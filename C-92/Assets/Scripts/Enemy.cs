@@ -11,17 +11,17 @@ public class Enemy : Character {
 //		man = GameObject.FindGameObjectWithTag ("Manager").GetComponent<Manager> ();
 //	}
 
-	public void Think (Vector2 pPos) {
-		Vector2 dire = new Vector2(transform.position.x, transform.position.z) - pPos;
-		if (Mathf.Abs (dire.x) > Mathf.Abs (dire.y)) {
+	public void Think (Vector3 pPos) {
+		Vector3 dire = transform.position - pPos;
+		if (Mathf.Abs (dire.x) > Mathf.Abs (dire.z)) {
 			if (dire.x > 1)
 				Move (0);
 			else if (dire.x < -1)
 				Move (2);
 		} else {
-			if (dire.y > 1)
+			if (dire.z > 1)
 				Move (3);
-			else if (dire.y < -1)
+			else if (dire.z < -1)
 				Move (1);
 		}
 	}

@@ -11,10 +11,10 @@ public class Manager : MonoBehaviour {
 	private bool right;
 	private GameObject player;
 	private Character PC;
-	public Vector2 pPos;
+	public Vector3 pPos;
 //	private bool canMove = false;
 	public GameObject[] enemys;
-	public Vector2[] lastPos;
+	public Vector3[] lastPos;
 	public Transform p;
 	private Transform cam;
 
@@ -24,10 +24,9 @@ public class Manager : MonoBehaviour {
 		PC = player.GetComponent<Character> ();
 		enemys = GameObject.FindGameObjectsWithTag ("Enemy");
 		int i = 0;
-		lastPos = new Vector2[enemys.Length];
+		lastPos = new Vector3[enemys.Length];
 		foreach(GameObject ene in enemys){
-			Debug.Log ("hoge");
-			lastPos[i] = new Vector2(ene.transform.position.x, ene.transform.position.z);
+			lastPos [i] = ene.GetComponent<Enemy> ().goal;
 			i++;
 		}
 		p = GameObject.FindGameObjectWithTag ("Player").transform;
@@ -63,7 +62,7 @@ public class Manager : MonoBehaviour {
 	}
 
 	IEnumerator WateInput (){
-		Debug.Log ("WI");
+//		Debug.Log ("WI");
 		while (!left && !right && hori == 0 && vert == 0) {
 			yield return null;
 		}
@@ -80,7 +79,7 @@ public class Manager : MonoBehaviour {
 		}
 
 		yield return null;
-		pPos = PC.goV2;
+		pPos = PC.goal;
 /*		入力情報を取得
  *		if(攻撃)
  *			StartCoroutine (PlayerAttack ());
@@ -88,7 +87,7 @@ public class Manager : MonoBehaviour {
 
 	}
 	IEnumerator PlayerAttack () {
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.2f);
 	}
 	IEnumerator EnemyThink () {
 //		Debug.Log ("ET");
@@ -96,7 +95,7 @@ public class Manager : MonoBehaviour {
 		foreach (GameObject ene in enemys) {
 			ene.GetComponent<Enemy> ().Think (pPos);
 			yield return null;
-			lastPos [i] = ene.GetComponent<Enemy> ().goV2;
+			lastPos [i] = ene.GetComponent<Enemy> ().goal;
 			i++;
 		}
 	}
@@ -107,6 +106,8 @@ public class Manager : MonoBehaviour {
 			ene.GetComponent<Enemy> ().NavStart ();
 			yield return null;
 		}
+
+//		yield return new WaitForSeconds(0.1f);
 
 		while (PC.agent.hasPath) {
 			yield return null;
