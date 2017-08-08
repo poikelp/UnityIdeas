@@ -10,11 +10,13 @@ public class tarPos : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		master = GameObject.FindGameObjectWithTag ("Player").transform;
+		master = GameObject.FindGameObjectWithTag ("PlayerModel").transform;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		transform.position = Vector3.SmoothDamp (transform.position, master.position, ref velocity, smoothTime);
+	void FixedUpdate () {
+		Vector3 pos = master.position;
+		pos.y += 1;
+		transform.position = Vector3.SmoothDamp (transform.position, pos, ref velocity, smoothTime);
 	}
 }

@@ -3,41 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour {
-	public int HP;
-	private int pow;
-	public Vector3 goal;
-//	public Vector3 start;
-//	public bool isMoving = false;
-//	private float startTime;
-//	private float time = 0.4f;
-	public Manager manage;
-	public UnityEngine.AI.NavMeshAgent agent;
-	private Animator anim;
-	public Vector3 oldGoal;
 
-	private float eulerY = 0;
-	private float rotaSp = 0.3f;
-	private float rotaVe = 0;
+	[SerializeField]
+	private GameObject model;
+	public int HP = 3;
+	private int pow = 1;
+	public Vector3 goal;
+	public Manager manage;
+//	public UnityEngine.AI.NavMeshAgent agent;
+//	private Animator anim;
+	public Vector3 oldGoal;
+	public int maxHP;
+
 	// Use this for initialization
 	void Start () {
-		agent = GetComponent<UnityEngine.AI.NavMeshAgent> ();
+//		agent = GetComponent<UnityEngine.AI.NavMeshAgent> ();
 		manage = GameObject.FindGameObjectWithTag ("Manager").GetComponent<Manager> ();
-		agent.acceleration = 8;
-		if(CompareTag("Player")) anim = GetComponentInChildren<Animator> ();
+//		agent.acceleration = 8;
+//		if(CompareTag("Player")) anim = model.GetComponent<Animator> ();
 		oldGoal = goal = transform.position;
-
+		maxHP = HP;
 		//test
-		//agent.SetDestination(new Vector3(3f, 0.5f, -15f ));
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (anim != null) {
-			anim.SetBool ("mooving", Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0);
-		}
+//	void Update () {
+//		if (anim != null) {
+//			anim.SetBool ("mooving", Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0);
+//		}
 
-		transform.eulerAngles = new Vector3 (0, Mathf.SmoothDampAngle (transform.eulerAngles.y, eulerY, ref rotaVe, rotaSp), 0);
-	}
+//	}
 
 	public void Move(int direction){
 
@@ -63,25 +58,21 @@ public class Character : MonoBehaviour {
 		default:
 			break;
 		}
-
-		eulerY = (direction - 1) * 90;
-//		transform.LookAt (goal);
-//		transform.LookAt (new Vector3(goal.x, transform.position.y, goal.z));
+		transform.LookAt (new Vector3(goal.x, transform.position.y, goal.z));
 
 
 		//段差補正
 		Vector3 stPos = goal;
 		stPos.y += 1;
 		RaycastHit hit;
-		Vector3 botom = new Vector3 (0, -1, 0);
-		if (Physics.Raycast (stPos, botom, out hit, 10)) {
+		if (Physics.Raycast (stPos, Vector3.down, out hit, 10)) {
 			goal = hit.point;
+			goal.y -= 0.01f;
 			goal.x = Mathf.RoundToInt (goal.x);
 			goal.y = Mathf.RoundToInt (goal.y);
 			goal.z = Mathf.RoundToInt (goal.z);
 			goal.y += 1;
 		} else {
-//			goal = transform.position;
 			goal = oldGoal;
 		}
 
@@ -102,6 +93,43 @@ public class Character : MonoBehaviour {
 	}
 
 	public void NavStart () {
-		agent.SetDestination (goal);
+		if (HP <= 0)
+			return;
+		transform.position = goal;
 	}
+
+	public void Attack () {
+		model.GetComponent<ModelsMove> ().Attack ();
+		if (CompareTag ("Player")) {
+			int i = 0;
+			foreach (Vector3 ene in manage.lastPos) {
+				if (((goal + transform.forward) - ene).sqrMagnitude < 0.1f) {
+					manage.enemys [i].GetComponent<Enemy> ().Damaged (pow);
+					break;
+				}
+				i++;
+			}
+		} else {
+			
+		}
+	}
+
+	public void Damaged (int dame){
+		HP -= dame;
+		if (HP <= 0)
+			StartCoroutine (Dead ());
+	}
+
+	public IEnumerator Dead () {
+		goal.y = -100;
+		oldGoal.y = -100;
+		yield return new WaitForSeconds (0.5f);
+
+		Vector3 pos = transform.position;
+		pos.y = -100;
+		transform.position = pos;
+//		gameObject.SetActive (false);
+	}
+
+
 }

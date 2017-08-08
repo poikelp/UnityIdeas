@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour {
+public class SphireCamera : MonoBehaviour {
 
 	[SerializeField]
 	private Transform target;
@@ -25,7 +25,7 @@ public class Camera : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		mouse += new Vector2 (Input.GetAxis ("Mouse X") * -1, Input.GetAxis ("Mouse Y") * 0.3f) * Time.deltaTime * spinSpeed;
 
 		mouse.y = Mathf.Clamp (mouse.y, -0.4f + 0.5f, 0.3f + 0.5f);
