@@ -1,0 +1,202 @@
+fileFormatVersion: 2
+guid: 156a38021a4ee8b4d914756d661614cc
+timeCreated: 1502273892
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: //RootNode
+    100004: ddragon
+    100006: foot_L
+    100008: foot_L_end
+    100010: foot_R
+    100012: foot_R_end
+    100014: hand_L
+    100016: hand_L_end
+    100018: hand_R
+    100020: hand_R_end
+    100022: head
+    100024: head_end
+    100026: hil_L
+    100028: hip_R
+    100030: lower_arm_L
+    100032: lower_arm_R
+    100034: lower_leg_L
+    100036: lower_leg_R
+    100038: master
+    100040: neck0
+    100042: neck1
+    100044: neck2
+    100046: neck3
+    100048: Shoulder0_L
+    100050: shoulder0_R
+    100052: shoulder1_L
+    100054: shoulder1_R
+    100056: sline0
+    100058: spine1
+    100060: spine2
+    100062: tail0
+    100064: tail1
+    100066: tail2
+    100068: tail3
+    100070: tail4
+    100072: tail4.001
+    100074: tail4.001_end
+    100076: upper_arm_L
+    100078: upper_arm_R
+    100080: upper_leg_L
+    100082: upper_leg_R
+    100084: wing0_L
+    100086: wing0_R
+    100088: wing1_L
+    100090: wing1_R
+    100092: wing2_L
+    100094: wing2_L.001
+    100096: wing2_L.002
+    100098: wing2_L.002_end
+    100100: wing2_R
+    100102: wing2_R.001
+    100104: wing2_R.002
+    100106: wing2_R.002_end
+    100108: wing3_L
+    100110: wing3_L.001
+    100112: wing3_L.001_end
+    100114: wing3_R
+    100116: wing3_R.001
+    100118: wing3_R.001_end
+    400000: Armature
+    400002: //RootNode
+    400004: ddragon
+    400006: foot_L
+    400008: foot_L_end
+    400010: foot_R
+    400012: foot_R_end
+    400014: hand_L
+    400016: hand_L_end
+    400018: hand_R
+    400020: hand_R_end
+    400022: head
+    400024: head_end
+    400026: hil_L
+    400028: hip_R
+    400030: lower_arm_L
+    400032: lower_arm_R
+    400034: lower_leg_L
+    400036: lower_leg_R
+    400038: master
+    400040: neck0
+    400042: neck1
+    400044: neck2
+    400046: neck3
+    400048: Shoulder0_L
+    400050: shoulder0_R
+    400052: shoulder1_L
+    400054: shoulder1_R
+    400056: sline0
+    400058: spine1
+    400060: spine2
+    400062: tail0
+    400064: tail1
+    400066: tail2
+    400068: tail3
+    400070: tail4
+    400072: tail4.001
+    400074: tail4.001_end
+    400076: upper_arm_L
+    400078: upper_arm_R
+    400080: upper_leg_L
+    400082: upper_leg_R
+    400084: wing0_L
+    400086: wing0_R
+    400088: wing1_L
+    400090: wing1_R
+    400092: wing2_L
+    400094: wing2_L.001
+    400096: wing2_L.002
+    400098: wing2_L.002_end
+    400100: wing2_R
+    400102: wing2_R.001
+    400104: wing2_R.002
+    400106: wing2_R.002_end
+    400108: wing3_L
+    400110: wing3_L.001
+    400112: wing3_L.001_end
+    400114: wing3_R
+    400116: wing3_R.001
+    400118: wing3_R.001_end
+    4300000: ddragon
+    7400000: Armature|Wait
+    7400002: Armature|Walk
+    9500000: //RootNode
+    13700000: ddragon
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.3
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

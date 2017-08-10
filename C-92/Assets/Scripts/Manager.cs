@@ -9,7 +9,7 @@ public class Manager : MonoBehaviour {
 	private float vert;
 	private bool left;
 	private GameObject player;
-	private Character PC;
+	public Character PC;
 	public Vector3 pPos;
 //	private bool canMove = false;
 	public GameObject[] enemys;
@@ -99,10 +99,11 @@ public class Manager : MonoBehaviour {
 		int i = 0;
 		foreach (GameObject ene in enemys) {
 			ene.GetComponent<Enemy> ().Think (pPos);
-			yield return null;
+
 			lastPos [i] = ene.GetComponent<Enemy> ().goal;
 			i++;
 		}
+		yield return null;
 	}
 	IEnumerator UnitMove (){
 //		Debug.Log ("UM");

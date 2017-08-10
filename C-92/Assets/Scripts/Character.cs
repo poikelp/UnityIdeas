@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Character : MonoBehaviour {
 
@@ -22,6 +24,10 @@ public class Character : MonoBehaviour {
 //		agent.acceleration = 8;
 //		if(CompareTag("Player")) anim = model.GetComponent<Animator> ();
 		oldGoal = goal = transform.position;
+		oldGoal.x = goal.x = Mathf.RoundToInt (goal.x);
+		oldGoal.y = goal.y = Mathf.RoundToInt (goal.y + 0.1f);
+		oldGoal.z = goal.z = Mathf.RoundToInt (goal.z);
+		transform.position = goal;
 		maxHP = HP;
 		//test
 	}
@@ -102,15 +108,17 @@ public class Character : MonoBehaviour {
 		model.GetComponent<ModelsMove> ().Attack ();
 		if (CompareTag ("Player")) {
 			int i = 0;
+			Vector3 hoge = goal;
+			hoge.y += 1;
 			foreach (Vector3 ene in manage.lastPos) {
-				if (((goal + transform.forward) - ene).sqrMagnitude < 0.1f) {
+				if (((goal + transform.forward) - ene).sqrMagnitude < 1.0f || ((hoge + transform.forward) - ene).sqrMagnitude < 1.0f) {
 					manage.enemys [i].GetComponent<Enemy> ().Damaged (pow);
 					break;
 				}
 				i++;
 			}
 		} else {
-			
+			manage.PC.Damaged (pow);
 		}
 	}
 
@@ -121,6 +129,9 @@ public class Character : MonoBehaviour {
 	}
 
 	public IEnumerator Dead () {
+		if (CompareTag ("Player")) {
+			SceneManager.LoadScene (0);
+		}
 		goal.y = -100;
 		oldGoal.y = -100;
 		yield return new WaitForSeconds (0.5f);
